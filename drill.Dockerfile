@@ -15,4 +15,5 @@
 # syntax=docker/dockerfile:1
 FROM apache/drill:latest
 USER root
+RUN apt-get update && apt-get install -y wget curl && rm -rf /var/lib/apt/lists/*
 RUN wget -P /opt/drill/jars/ https://repo1.maven.org/maven2/com/google/cloud/bigdataoss/gcs-connector/hadoop2-2.2.9/gcs-connector-hadoop2-2.2.9-shaded.jar 

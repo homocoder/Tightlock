@@ -1,8 +1,8 @@
 alembic==1.11.1
-fastapi==0.111.0
-httpx==0.24.1
+fastapi # TRKKN. checking behaviour without explicit version
+httpx # TRKKN. checking behaviour without explicit version
 sqlalchemy_json==0.5.0
-sqlmodel==0.0.8
+sqlmodel # TRKKN. checking behaviour without explicit version
 asyncpg==0.27.0
 slowapi==0.1.8
 redis==5.0.1

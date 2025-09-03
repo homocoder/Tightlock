@@ -17,13 +17,15 @@
 """DB connection definition."""
 import os
 
+from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import sessionmaker
-from sqlmodel import create_engine
-from sqlmodel.ext.asyncio.session import AsyncEngine
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-engine = AsyncEngine(create_engine(os.environ.get('CONFIG_DB_CONN'),
-                                   echo=True, future=True))
+# Obtiene la URL de conexión de la variable de entorno
+database_url = os.environ.get('CONFIG_DB_CONN')
+
+# Crea el motor asíncrono directamente
+engine = create_async_engine(database_url, echo=True, future=True)
 
 
 async def get_session() -> AsyncSession:
